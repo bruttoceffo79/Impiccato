@@ -1,0 +1,218 @@
+/*non funzion la dimensione minima dell apagina è settata a 500*/
+body{
+   min-width:320px;        /* Suppose you want minimum width of 1000px */
+   width: auto !important;  /* Firefox will set width as auto */
+   width:320px;            /* As IE6 ignores !important it will set width as 1000px; */
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-rows: 100px 100px 100px 100px 100px 100px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 5px;
+  grid-template-areas:
+  "area1 area1 area1 area1 area1"
+  "area2 area2 area3 area3 area3"
+  "area2 area2 area3 area3 area3"
+  "area2 area2 area3 area3 area3"
+  "area2 area2 area3 area3 area3"
+  "area2 area2 area3 area3 area3"
+  "area4 area4 area4 area4 area4";
+}
+
+.grid-item1 {
+  background: #b3b3ff;
+  text-align: center;
+  border: black 5px solid;
+  border-radius: 4px;
+  grid-area: area1;
+}
+
+.grid-item2 {
+  background: #ff3333;
+  text-align: center;
+  border: black 5px solid;
+  border-radius: 4px;
+  grid-area: area2;
+  overflow: hidden;
+}
+
+.grid-item3 {
+  background: #80ff80;
+  text-align: center;
+  border: black 5px solid;
+  border-radius: 4px;
+  grid-area: area3;
+  overflow: hidden;
+}
+.grid-item4 {
+  background: #b38f00;
+  text-align: center;
+  border: black 5px solid;
+  border-radius: 4px;
+  grid-area: area4;
+}
+
+
+@media(max-width: 500px){
+	.grid-container{
+		display: grid;
+		grid-template-rows: 100px 100px 100px;
+		gap: 5px;
+		/*grid-auto-column: 1fr 1fr 1fr;*/
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-areas:
+		"area1 area1 area1"
+		"area2 area2 area2"
+		"area2 area2 area2"
+		"area2 area2 area2"
+		"area3 area3 area3"
+		"area3 area3 area3"
+		"area3 area3 area3"
+		"area3 area3 area3"
+		"area3 area3 area3"
+		"area4 area4 area4";
+	}
+	
+	
+}
+
+.parola {
+  /*display: inline*/
+  gap: 0px;
+  align-items: center;
+  padding-left: auto;
+  padding-bottom: 0;
+  margin: 40px 0px 40px;
+  font-size: 50px;
+  background: white;
+  border-radius: 15px;
+}
+
+button.ko {
+	background-color: red!important;
+}
+
+
+button.ok {
+	background-color: blue!important;
+}
+
+
+.custom_btn {
+    width: 50px;
+    height: 50px;
+	font-size: 1.8rem;
+	font-weight: 300;
+	float: center;
+	  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #04AA6D;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.custom_btn:hover {background-color: #3e8e41
+}
+
+.custom_btn:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+
+.custom_btn_rst {
+    width: 300px;
+    height: 50px;
+	font-size: 1.8rem;
+	font-weight: 300;
+	float: center;
+	text-align: center;
+	cursor: pointer;
+	outline: none;
+	color: #fff;
+	background-color: #04AA6D;
+	border: none;
+	border-radius: 15px;
+	box-shadow: 0 9px #999;
+	margin: 40px 0px 40px;
+}
+
+.custom_btn_rst:hover {background-color: #3e8e41
+}
+
+.custom_btn_rst:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+
+
+
+
+.button_line1 {
+	position: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+.button_line2 {
+	position: center;	
+}
+.button_line3 {
+	position: center;	
+}
+.button_line4 {
+	position: center;	
+}
+
+.text_cell {
+    width: 40px;
+    height: 40px;
+	/*border-radius: 4px;*/
+	
+	padding: 0px;
+	text-align: center;
+	border: 0px;
+	outline: none;
+	font-size: 40px;	
+}
+
+
+img {
+		max-width: 100%;
+		max-height: 100%;
+}
+
+.custom_img{
+		max-width: 742px;
+		max-height: 556px;
+}
+
+
+
+
+svg {
+  width: 100vh;
+  height: 100vh;
+  display: block;
+  margin: 0 auto;
+  /* border: 1px solid black; */
+}
+
+/*
+.flexcontainer{
+	display: flex;
+	align-content: center;
+	gap: 1em;
+	
+	
+}
+*/

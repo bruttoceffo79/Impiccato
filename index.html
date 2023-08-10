@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<title>L'impiccato</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="script.js" ></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.0.5/gsap.min.js"></script>
+</head>
+<body>
+
+<div class="grid-container">
+  <div class="grid-item1">
+	<h1>Gioca all'mpiccato!</h1>
+  </div>
+  <div class="grid-item2">
+	<h1 id="info"></h1><h1 id="vite"></h1>
+	<!--
+	<div class="custom_img">
+		<img src="immages/immagine_campione.png" alt="" srcset="">
+    </div>
+	-->
+	<canvas id="canvas" width="400px" height="300px" >
+		Your browser does not support HTML5 Canvas element
+		
+		<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var hm = new HappyMan();
+		var pezziDiCorpo = 0;
+		var vitaAttuale = hm.vite;
+		hm.setCanvas(canvas);
+		console.log("nome:",hm.nome);
+		console.log("vite:",vite);
+		console.log("numero di errori fatti: ",pezziDiCorpo);
+				
+		var vite=document.getElementById("vite");
+		info.innerHTML="Lo stato di " +hm.nome+ " e il suo numero di vite: "+vitaAttuale ;
+		
+	</script>	
+		
+	</canvas>
+	
+	
+  </div>
+  
+  <div class="grid-item3">
+	<h1 id ="testo"></h1>
+	<div id="parola" class="parola">	
+
+		<script type="text/javascript">
+	
+			var lunghezzaVoc = hm.vocabolario.length;
+			console.log("Lunghezza vocabolario:",lunghezzaVoc);
+			let n= Math.floor(Math.random()*(lunghezzaVoc-0+1)+0); //c'è il problema che possono essere generati valori randomici uguali
+			console.log("indice nel vocabolario:",n);
+			console.log("parola nel vocabolario:",hm.vocabolario[n]);
+			n==20?n=n-1:n;//controllo oveflow parola
+			var lunghezzaParola = hm.vocabolario[n].length;
+			console.log("Lunghezza parola nel vocabolario",lunghezzaParola);
+			//la versione corretta è con documente.getElementById;
+			testo.innerHTML="La lunghezza della parola che dovrai indovinare è: "+lunghezzaParola; 
+			console.log("stampa STOCAZZO di HTML ",aiuto2)
+			
+			
+			var percIgn = Math.ceil(lunghezzaParola/100*20);
+			console.log("numero lettere di aiuto calcolate:",percIgn);
+			console.log("Lunghezza parola scelta",lunghezzaParola);
+			var aiuto = hm.vocabolario[n];
+			var aiutoBk = hm.vocabolario[n];
+			var lettereGiuste=[];
+
+			console.log("parola di gioco da occultare (aiuto):",aiuto);
+			for (var i=0; i<lunghezzaParola ; i++) {
+				aiuto=`${aiuto.substring(0,i)}_${aiuto.substring(i+1)}`;
+				//console.log("prototipo parola di gioco:",aiuto[i]," indice: ",i," lunghezza:",aiuto.length," paroal finale: ",aiuto);
+			}
+			
+			let rand =[];
+			
+			for (var i=0; i<percIgn ; i++) {
+				console.log(percIgn);
+				var lunghezzaAiuto = aiuto.length;
+				
+				if(rand.length<lunghezzaAiuto-1){
+					rand.push(Math.floor(Math.random()*(lunghezzaAiuto-0+1)+0));//c'è il problema che possono essere generati valori randomici uguali
+					rand==aiuto.lenght?rand=rand-1:rand;
+					console.log("indice lettera di aiuto",rand);
+					console.log("prima della costruzione parola di aiuto ",aiuto," lunghezza ",aiuto.length);
+				}
+				var stringa = aiuto.toString();
+				console.log("Parola finale di aiuto in stringa",stringa);
+				console.log("rand=",rand, "hm.vocabolario[n][rand]=",hm.vocabolario[n][rand.length]);//funziona
+				aiuto[rand]=hm.vocabolario[n][rand];
+				console.log("Variabile rand",rand);
+				console.log("Parola finale di aiuto",aiuto);			
+			}
+			rand.sort(function(a, b) {return a - b;});
+			console.log("sort",rand);
+						
+			var aiuto2="";
+			for(var i=0;i<aiutoBk.length;i++){
+				var controllo= false;
+				for(var ii=0;ii<rand.length;ii++){
+					if(rand[ii]==i){
+						controllo = true;
+					}
+				}
+				if (controllo){
+					aiuto2+=aiutoBk[i];
+				} 
+				else{
+					aiuto2+="_";				
+				}
+			}
+			console.log(aiuto2);
+			var cacca= aiuto2;
+			
+			var aiutoSplit = aiuto2;
+			aiutoSplit = aiutoSplit.split("");
+			for(var i=0;i<aiuto2.length;i++){
+				parola.innerHTML+= " "+aiuto2[i]+" ";	
+			}
+			
+
+		</script>
+		
+	</div>
+	<div class="button_line1">
+		<button id="Q" type = "button" class = "custom_btn" onclick="myCheckLetter('Q')">Q</button>
+		<button id="W" type = "button" class = "custom_btn" onclick="myCheckLetter('W')">W</button>
+		<button id="E" type = "button" class = "custom_btn" onclick="myCheckLetter('E')">E</button>
+		<button id="R" type = "button" class = "custom_btn" onclick="myCheckLetter('R')">R</button>
+		<button id="T" type = "button" class = "custom_btn" onclick="myCheckLetter('T')">T</button>	
+		<button id="Y" type = "button" class = "custom_btn" onclick="myCheckLetter('Y')">Y</button>
+		<button id="U" type = "button" class = "custom_btn" onclick="myCheckLetter('U')">U</button>
+		<button id="I" type = "button" class = "custom_btn" onclick="myCheckLetter('I')">I</button>
+		<button id="O" type = "button" class = "custom_btn" onclick="myCheckLetter('O')">O</button>
+		<button id="P" type = "button" class = "custom_btn" onclick="myCheckLetter('P')">P</button>
+	</div>
+	<div class="button_line2">
+		<button id="A" type = "button" class = "custom_btn" onclick="myCheckLetter('A')">A</button>
+		<button id="S" type = "button" class = "custom_btn" onclick="myCheckLetter('S')">S</button>
+		<button id="D" type = "button" class = "custom_btn" onclick="myCheckLetter('D')">D</button>
+		<button id="F" type = "button" class = "custom_btn" onclick="myCheckLetter('F')">F</button>
+		<button id="G" type = "button" class = "custom_btn" onclick="myCheckLetter('G')">G</button>
+		<button id="H" type = "button" class = "custom_btn" onclick="myCheckLetter('H')">H</button>
+		<button id="J" type = "button" class = "custom_btn" onclick="myCheckLetter('J')">J</button>
+		<button id="K" type = "button" class = "custom_btn" onclick="myCheckLetter('K')">K</button>
+		<button id="L" type = "button" class = "custom_btn" onclick="myCheckLetter('L')">L</button>
+	</div>                                                                          
+	<div class="button_line3">
+		<button id="Z" type = "button" class = "custom_btn" onclick="myCheckLetter('Z')">Z</button>
+		<button id="X" type = "button" class = "custom_btn" onclick="myCheckLetter('X')">X</button>
+		<button id="C" type = "button" class = "custom_btn" onclick="myCheckLetter('C')">C</button>
+		<button id="V" type = "button" class = "custom_btn" onclick="myCheckLetter('V')">V</button>
+		<button id="B" type = "button" class = "custom_btn" onclick="myCheckLetter('B')">B</button>
+		<button id="N" type = "button" class = "custom_btn" onclick="myCheckLetter('N')">N</button>
+		<button id="M" type = "button" class = "custom_btn" onclick="myCheckLetter('M')">M</button>
+	</div>                                                                          
+	<div class="button_line4">                                                      
+		<button id="reset" type = "button" class = "custom_btn_rst" onclick="myReset()">RESET PAROLA</button>             
+	</div>
+	
+	<script type="text/javascript">
+		function myCheckLetter(letter){
+			console.log("bottone premuto: ",letter);
+			var parola=hm.vocabolario[n];
+			if(parola.search(letter)==-1){
+				var obj = document.getElementById(letter);
+				obj.className+=" ko";
+				pezziDiCorpo++;
+				console.log("Lettera non trovata :( ", "errori: ", pezziDiCorpo);
+				
+				
+				if(pezziDiCorpo>6 && vitaAttuale >= 1){
+					pezziDiCorpo=0;
+					vitaAttuale--;
+					console.log("pezzi di corpo: ",pezziDiCorpo," vita attuale: ",vitaAttuale);
+					info.innerHTML="Lo stato di " +hm.nome+ " e il suo numero di vite: "+vitaAttuale ;
+					
+					if(vitaAttuale==0 ){
+						console.log("pezzi di corpo: ",pezziDiCorpo," vita attuale: ",vitaAttuale);
+						info.innerHTML="AMMAZZATI MALE!" ;
+					}
+				}
+				hm.disegnaFino(pezziDiCorpo);
+				
+			}
+			else{
+				
+				lettereGiuste.push(letter);
+				var aiuto3="";
+				for(var i=0;i<aiutoBk.length;i++){
+					var controllo= false;
+					for(var ii=0;ii<lettereGiuste.length;ii++){
+						if(lettereGiuste[ii]==aiutoBk[i]){
+							controllo = true;
+						}
+					}
+					if (controllo){
+						aiuto3+=aiutoBk[i];
+					} 
+					else{
+						aiuto3+=aiuto2[i];				
+					}
+				}
+				/*
+				var indLetteraTrovata=parola.search(letter);
+				console.log("Lettera trovata :",indLetteraTrovata);
+				var obj = document.getElementById(letter);
+				obj.className+=" ok";
+
+				
+				letBK=aiutoBk[indLetteraTrovata];
+				aiutoSplit.splice(indLetteraTrovata, 1, letBK);//non funge ma dovrebbe
+				//aiutoSplit=aiutoSplit.join('');
+				//aiutoString=aiutoSplit.toString();
+	
+				console.log("aiutoSplit: ",aiutoSplit,"Parola: " ,parola ,"aiutoBk: " ,aiutoBk,"indLetteraTrovata: ",indLetteraTrovata,"lettera: ",letBK);
+				*/
+				var obj = document.getElementById(letter);
+				obj.className+=" ok";
+				console.log("Parola: " ,parola ,"aiutoBk: " ,aiutoBk);
+				parolaSchermo=document.getElementById("parola");
+				parolaSchermo.innerHTML="";
+				for(var i=0;i<aiuto3.length;i++){
+				
+					parolaSchermo.innerHTML+= " "+aiuto3[i]+" ";
+				
+				}
+			}
+		
+		}
+		function myReset(){
+			console.log("Parola: " ,parola ,"aiutoBk: " ,aiutoBk," cacca: ",cacca);
+			parolaSchermo=document.getElementById("parola");
+				parolaSchermo.innerHTML="";
+				
+				var aiuto4=cacca;
+				for(var i=0;i<aiuto4.length;i++){
+					parolaSchermo.innerHTML+= " "+aiuto4[i]+" ";
+				}
+				
+				
+		}
+	
+	
+	</script>
+	
+	
+  </div>
+  <div class="grid-item4">
+	<h1>Comunicazioni</h1>
+  </div>
+</div>
+
+</body>
+
+</html>
